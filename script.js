@@ -1,24 +1,14 @@
-let list = document.querySelector('.todo-list');
-let input = document.querySelector('.todo-input');
-let form = document.querySelector('.todo-form');
-let priority = document.querySelector('.todo-priority');
+let upButton = document.querySelector('.up-button');
 
-priority.onclick = function () {
-  priority.classList.toggle('is-important');
-  if (priority.classList.contains('is-important')) {
-    priority.textContent = 'Важная задача';
+window.onscroll = function () {
+  if (window.pageYOffset > 200) {
+    upButton.classList.add('shown');
   } else {
-    priority.textContent = 'Обычная задача';
+    upButton.classList.remove('shown');
   }
+
 };
 
-form.onsubmit = function (evt) {
-  evt.preventDefault();
- let newTask = document.createElement('li');
- newTask.textContent = input.value;
- if (priority.classList.contains('is-important')) {
-   newTask.classList.add('is-important');
-   }
- list.append(newTask);
- input.value = '';
+upButton.onclick = function () {
+  window.scrollTo(0, 0);
 };
