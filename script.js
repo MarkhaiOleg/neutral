@@ -1,29 +1,24 @@
-let mode = 'alternate'; // Режим работы драйвера печати
-let pageNumber = 5; // Номер копируемой страницы
-let copyCount = 7; // Количество копий
-let totalPages = 6; // Всего страниц в документе
-let startPage = 2; // Стартовая страница
+let days = 9; // Дней в периоде
+let evenDayAmount = 200; // Количество протеина в чётные дни
+let oddDayAmount = 100; // Количество протеина в нечётные дни
+let total = 0; // Общее количество протеина
+let sum = 0;
 
-if (mode === 'pageCopy') {
-  for (let copies = 1; copies <= copyCount; copies++) {
-    keks.print(pageNumber);
+for (let day = 1; day <= days;day++ )
+{
+  if (day % 2 === 0) {
+   total += evenDayAmount;  
+    console.log( total );
+    } else {   total += oddDayAmount ;
+    console.log( total );}
   }
-}
 
-if (mode === 'document') {
-  for (let page = 1; page <= totalPages; page++) {
-    keks.print(page);
-  }
-}
+/* Техническое задание
 
-if (mode === 'reverse') {
-  for (let reversePage = totalPages; reversePage >= 1; reversePage--) {
-    keks.print(reversePage);
-  }
-}
+Мяу! Программа должна считать сколько протеина я должен выпить за весь тренировочный период.
 
-if (mode === 'alternate') {
-  for (let alternatePage = startPage; alternatePage <= totalPages; alternatePage += 2) {
-    keks.print(alternatePage);
-  }
-}
+В чётные дни я пью 200 грамм. В нечётные 100 грамм.
+
+Количество дней хранится в переменной days, количество протеина для приёма в чётный день — в переменной evenDayAmount, протеин в нечётный день — в переменной oddDayAmount, а результат необходимо записать в переменную total, которая уже задана.
+
+*/
