@@ -1,26 +1,14 @@
-let score = 0;
-let total = 0;
-let victoryPoints = 100;
-let misses = 0;
+let initialWeight = 6000; // Исходный вес в граммах
+let targetWeight = 5000; // Желанный вес в граммах
+let days = 0;
 
-while (total < victoryPoints) {
-  if (misses >= 3) {
-    break;
+while (initialWeight > targetWeight ) {
+  if ( initialWeight <= targetWeight ) {
+    break; }
+  days++;
+  initialWeight = initialWeight / 100 * 95;
+    
   }
 
-  score = keks.getScore();
-
-  if (score < 0) {
-    console.log('Промах!');
-    misses++;
-  } else {
-    total += score;
-    console.log('Результат броска: ' + score);
-  }
-}
-
-if (  total >= victoryPoints ) {
-  console.log('Победа! Очков: ' + total + ', промахов: ' + misses)
-  } else {console.log('Проигрыш. Очков: ' + total + ', промахов: ' + misses)}
-
-
+console.log('дней ' + days);
+console.log(initialWeight);
